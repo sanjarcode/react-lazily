@@ -33,7 +33,7 @@ You would have to use `React.lazy` like this:
 But if the component is exported with named export `export const MyComponent = ...` then you have to do:
 
 ```ts
-const MyComponent = React.lazy(() =>
+export const MyComponent = React.lazy(() =>
   import('./MyComponent').then((module) => ({ default: module.MyComponent }))
 );
 ```
@@ -41,7 +41,7 @@ const MyComponent = React.lazy(() =>
 With `react-lazily` it becomes:
 
 ```ts
-const { MyComponent } = lazily(() => import('./MyComponent'));
+export const { MyComponent } = lazily(() => import('./MyComponent'));
 ```
 
 ## Full example
